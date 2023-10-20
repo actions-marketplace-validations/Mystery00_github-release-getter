@@ -1,0 +1,19 @@
+# action.yml
+name: 'github-release-getter'
+description: 'github-release-getter'
+inputs:
+  repoOwner:
+    description: 'repoOwner'
+    required: true
+  repoName:
+    description: 'repoName'
+    required: true
+outputs:
+  tagName:
+    description: 'tag_name'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repoOwner }}
+    - ${{ inputs.repoName }}
